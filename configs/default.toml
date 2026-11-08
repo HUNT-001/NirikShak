@@ -1,0 +1,26 @@
+# Nirikshak configuration. Every key is optional; omitted keys use code defaults.
+calibration = "calibration.json"
+classifier_onnx = ""            # e.g. "models/defect_cls.onnx" (labels: models/defect_cls.labels.json)
+db = "inspections.db"
+trend_window = 50
+
+[localize]
+work_px = 512
+lattice_min_conf = 0.35
+z_thr = 6.0
+min_area_px = 12
+
+[severity]
+critical_labels = ["crack", "scratch", "missing_pad", "short", "open"]
+critical_area_frac = 0.02
+major_area_frac = 0.004
+major_peak_z = 25.0
+
+[runner]                        # Llama 3.2 1B via ExecuTorch llama_main
+mode = "off"                    # off | local (Pi 5 / Termux) | adb (laptop drives the phone)
+binary = "./llama_main"
+model = "llama3_2_1b.pte"
+tokenizer = "tokenizer.model"
+workdir = "/data/local/tmp/nirikshak"
+seq_len = 384
+threads = 4
