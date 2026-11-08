@@ -1,0 +1,12 @@
+__pycache__/
+*.egg-info/
+*.db
+*.pte
+*.pth
+*.onnx
+models/
+demo_out/
+calibration.json
+tune_report.json
+data/raw/
+.venv/
